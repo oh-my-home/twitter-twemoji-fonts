@@ -9,7 +9,7 @@
 
 Name:           google-noto-emoji-fonts
 Version:        20160406
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Google Noto Emoji Fonts
 
 # In noto-emoji-fonts source
@@ -23,7 +23,8 @@ Summary:        Google Noto Emoji Fonts
 License:        OFL and ASL 2.0
 URL:            https://github.com/googlei18n/noto-emoji
 Source0:        https://github.com/googlei18n/noto-emoji/archive/%{commit0}.tar.gz#/noto-emoji-%{shortcommit0}.tar.gz
-Source1:  https://github.com/googlei18n/nototools/archive/%{commit1}.tar.gz#/nototools-%{shortcommit1}.tar.gz
+Source1:        https://github.com/googlei18n/nototools/archive/%{commit1}.tar.gz#/nototools-%{shortcommit1}.tar.gz
+Source2:        google-noto-emoji.metainfo.xml
 
 Patch0:         noto-emoji-use-system-pngquant.patch
 
@@ -66,13 +67,20 @@ install -m 0755 -d %{buildroot}%{_fontdir}
 install -m 0644 -p *Emoji.ttf %{buildroot}%{_fontdir}
 install -m 0644 -p fonts/*.ttf %{buildroot}%{_fontdir}
 
+mkdir -p %{buildroot}%{_datadir}/appdata
+install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
+
 
 %_font_pkg *.ttf
 %license LICENSE
 %doc AUTHORS CONTRIBUTING.md CONTRIBUTORS README.md
+%{_datadir}/appdata/google-noto-emoji.metainfo.xml
 
 
 %changelog
+* Mon Apr 25 2016 Peng Wu <pwu@redhat.com> - 20160406-3
+- Add google-noto-emoji.metainfo.xml
+
 * Wed Apr 20 2016 Peng Wu <pwu@redhat.com> - 20160406-2
 - Use system pngquant
 
