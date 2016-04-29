@@ -9,7 +9,7 @@
 
 Name:           google-noto-emoji-fonts
 Version:        20160406
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Google Noto Emoji Fonts
 
 # In noto-emoji-fonts source
@@ -38,6 +38,9 @@ BuildRequires:  optipng
 BuildRequires:  cairo-devel
 
 Requires:       fontpackages-filesystem
+
+Obsoletes:      google-noto-color-emoji-fonts < 20150617
+Provides:       google-noto-color-emoji-fonts = 20150617
 
 %description
 Color and Black-and-White Noto emoji fonts, and tools for working with them.
@@ -78,6 +81,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Fri Apr 29 2016 Peng Wu <pwu@redhat.com> - 20160406-4
+- Replace google-noto-color-emoji-fonts package
+
 * Mon Apr 25 2016 Peng Wu <pwu@redhat.com> - 20160406-3
 - Add google-noto-emoji.metainfo.xml
 
