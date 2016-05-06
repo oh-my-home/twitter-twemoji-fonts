@@ -9,7 +9,7 @@
 
 Name:           google-noto-emoji-fonts
 Version:        20160406
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Google Noto Emoji Fonts
 
 # In noto-emoji-fonts source
@@ -58,10 +58,8 @@ rm -rf nototools-%{commit1}/third_party/{cldr,dspl,fontcrunch,ohchr,spiro,udhr,u
 export LANG=zh_CN.UTF-8
 
 pushd nototools-%{commit1}
-%{__python2} setup.py develop --user
+export PATH=$PATH:"$PWD/nototools"
 popd
-
-export PATH=$PATH:$HOME/.local/bin
 
 make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS"
 
@@ -81,6 +79,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Fri May  6 2016 Peng Wu <pwu@redhat.com> - 20160406-5
+- Avoid to use python setup.py
+
 * Fri Apr 29 2016 Peng Wu <pwu@redhat.com> - 20160406-4
 - Replace google-noto-color-emoji-fonts package
 
