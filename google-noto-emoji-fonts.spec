@@ -29,6 +29,7 @@ Source2:        google-noto-emoji.metainfo.xml
 Patch0:         noto-emoji-use-system-pngquant.patch
 
 BuildArch:      noarch
+BuildRequires:  fonttools
 BuildRequires:  python2-fonttools
 BuildRequires:  python-devel
 BuildRequires:  fontpackages-devel
@@ -59,6 +60,7 @@ export LANG=zh_CN.UTF-8
 
 pushd nototools-%{commit1}
 export PATH=$PATH:"$PWD/nototools"
+export PYTHONPATH=$PWD
 popd
 
 make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS"
