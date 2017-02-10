@@ -9,7 +9,7 @@
 
 Name:           google-noto-emoji-fonts
 Version:        20160406
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Google Noto Emoji Fonts
 
 # In noto-emoji-fonts source
@@ -81,6 +81,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 20160406-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Fri May  6 2016 Peng Wu <pwu@redhat.com> - 20160406-5
 - Avoid to use python setup.py
 
