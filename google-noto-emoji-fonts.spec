@@ -1,15 +1,15 @@
-%global commit0 e7a7241a929625feb16920a40bfa29e4a302b82b
+%global commit0 1c0ce222a4827d11501297f3c303f84cc3a45cad
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
-%global commit1 c1f2cffbba35d08c9558006bc7860492ce322b87
+%global commit1 d59a1867d3adc3e7ae94f1b4facecb9bf2a30089
 %global shortcommit1 %(c=%{commit1}; echo ${c:0:7})
 
 %global fontname google-noto-emoji
 
 
 Name:           google-noto-emoji-fonts
-Version:        20160406
-Release:        6%{?dist}
+Version:        20170223
+Release:        1%{?dist}
 Summary:        Google Noto Emoji Fonts
 
 # In noto-emoji-fonts source
@@ -81,6 +81,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Thu Feb 23 2017 Peng Wu <pwu@redhat.com> - 20170223-1
+- Update to upstream snapshot tarball
+
 * Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 20160406-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 

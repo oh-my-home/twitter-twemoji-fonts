@@ -8,7 +8,7 @@ Index: noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
  
 -CFLAGS = -std=c99 -Wall -Wextra `pkg-config --cflags --libs cairo`
 +CFLAGS = $(OPT_CFLAGS) `pkg-config --cflags --libs cairo`
- LDFLAGS = `pkg-config --libs cairo`
+ LDFLAGS = -lm `pkg-config --libs cairo`
 -PNGQUANTDIR := third_party/pngquant
 -PNGQUANT := $(PNGQUANTDIR)/pngquant
 +PNGQUANT = pngquant
