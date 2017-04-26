@@ -1,7 +1,6 @@
-Index: noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
-===================================================================
---- noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b.orig/Makefile
-+++ noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
+diff -ru noto-emoji-ff566b2c16f9332dc54e1b538e2bce2d213c0e3d.orig/Makefile noto-emoji-ff566b2c16f9332dc54e1b538e2bce2d213c0e3d/Makefile
+--- noto-emoji-ff566b2c16f9332dc54e1b538e2bce2d213c0e3d.orig/Makefile	2017-04-25 22:02:45.000000000 +0200
++++ noto-emoji-ff566b2c16f9332dc54e1b538e2bce2d213c0e3d/Makefile	2017-04-26 09:55:23.736788590 +0200
 @@ -15,10 +15,9 @@
  EMOJI = NotoColorEmoji
  font: $(EMOJI).ttf
@@ -12,10 +11,10 @@ Index: noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
 -PNGQUANTDIR := third_party/pngquant
 -PNGQUANT := $(PNGQUANTDIR)/pngquant
 +PNGQUANT = pngquant
- PNGQUANTFLAGS = --speed 1 --skip-if-larger --force
+ PNGQUANTFLAGS = --speed 1 --skip-if-larger --quality 85-95 --force
+ IMOPS = -size 136x128 canvas:none -compose copy -gravity center
  
- # zopflipng is better (about 5-10%) but much slower.  it will be used if
-@@ -92,6 +91,12 @@ ALL_QUANTIZED_FILES = $(addprefix $(QUAN
+@@ -96,6 +95,12 @@
  ALL_COMPRESSED_FILES = $(addprefix $(COMPRESSED_DIR)/, $(ALL_NAMES))
  
  # tool checks
@@ -28,7 +27,7 @@ Index: noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
  ifeq (,$(shell which $(ZOPFLIPNG)))
    ifeq (,$(wildcard $(ZOPFLIPNG)))
      MISSING_ZOPFLI = fail
-@@ -121,6 +126,11 @@ quantized: $(ALL_QUANTIZED_FILES)
+@@ -125,6 +130,11 @@
  
  compressed: $(ALL_COMPRESSED_FILES)
  
@@ -40,7 +39,7 @@ Index: noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
  check_compress_tool:
  ifdef MISSING_ZOPFLI
    ifdef MISSING_OPTIPNG
-@@ -141,8 +151,7 @@ endif
+@@ -145,8 +155,7 @@
  $(EMOJI_DIR) $(FLAGS_DIR) $(RESIZED_FLAGS_DIR) $(RENAMED_FLAGS_DIR) $(QUANTIZED_DIR) $(COMPRESSED_DIR):
  	mkdir -p "$@"
  
@@ -50,7 +49,7 @@ Index: noto-emoji-e7a7241a929625feb16920a40bfa29e4a302b82b/Makefile
  
  waveflag: waveflag.c
  	$(CC) $< -o $@ $(CFLAGS) $(LDFLAGS)
-@@ -213,5 +222,5 @@ clean:
+@@ -226,5 +235,5 @@
  .SECONDARY: $(EMOJI_FILES) $(FLAG_FILES) $(RESIZED_FLAG_FILES) $(RENAMED_FLAG_FILES) \
    $(ALL_QUANTIZED_FILES) $(ALL_COMPRESSED_FILES)
  

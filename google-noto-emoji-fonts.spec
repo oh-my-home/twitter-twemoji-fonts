@@ -1,14 +1,14 @@
-%global commit0 1c0ce222a4827d11501297f3c303f84cc3a45cad
+%global commit0 ff566b2c16f9332dc54e1b538e2bce2d213c0e3d
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
-%global commit1 d59a1867d3adc3e7ae94f1b4facecb9bf2a30089
+%global commit1 b5af4b94a5744ca94f662de6a8f95a5ec3c8afcf
 %global shortcommit1 %(c=%{commit1}; echo ${c:0:7})
 
 %global fontname google-noto-emoji
 
 
 Name:           google-noto-emoji-fonts
-Version:        20170223
+Version:        20170426
 Release:        1%{?dist}
 Summary:        Google Noto Emoji Fonts
 
@@ -81,6 +81,12 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Wed Apr 26 2017 Mike FABIAN <mfabian@redhat.com> - 20170426-1
+- Update to upstream snapshot tarball
+  (fixes the family emoji sequences:
+  kiss: woman, man U+1F469 U+200D U+2764 U+FE0F U+200D U+1F48B U+200D U+1F468
+  couple with heart: woman, man U+1F469 U+200D U+2764 U+FE0F U+200D U+1F468)
+
 * Thu Feb 23 2017 Peng Wu <pwu@redhat.com> - 20170223-1
 - Update to upstream snapshot tarball
 
