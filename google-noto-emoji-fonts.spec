@@ -1,14 +1,14 @@
-%global commit0 ff566b2c16f9332dc54e1b538e2bce2d213c0e3d
+%global commit0 ca22132c45adb022c1a6c6bed96df76cf0c4fb18
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
-%global commit1 b5af4b94a5744ca94f662de6a8f95a5ec3c8afcf
+%global commit1 674ccc7c54f3d5d9588a6b354e662ac6a04369b7
 %global shortcommit1 %(c=%{commit1}; echo ${c:0:7})
 
 %global fontname google-noto-emoji
 
 
 Name:           google-noto-emoji-fonts
-Version:        20170426
+Version:        20170523
 Release:        1%{?dist}
 Summary:        Google Noto Emoji Fonts
 
@@ -81,6 +81,11 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Tue May 23 2017 Mike FABIAN <mfabian@redhat.com> - 20170523-1
+- Update to upstream snapshot tarball
+- This fixes the skin tones of the light/medium light male cook emoji,
+  which had been swapped.
+
 * Wed Apr 26 2017 Mike FABIAN <mfabian@redhat.com> - 20170426-1
 - Update to upstream snapshot tarball
   (fixes the family emoji sequences:
