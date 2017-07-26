@@ -9,7 +9,7 @@
 
 Name:           google-noto-emoji-fonts
 Version:        20170608
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Google Noto Emoji Fonts
 
 # In noto-emoji-fonts source
@@ -81,6 +81,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 20170608-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Thu Jun 08 2017 Mike FABIAN <mfabian@redhat.com> - 20170608-1
 - Update to upstream snapshot tarball
 
