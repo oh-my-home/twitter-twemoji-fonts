@@ -1,16 +1,16 @@
-%global commit0 a4ddd5b44fe2b78643a05ab396d127823db645f7
+%global commit0 411334c8e630acf858569602cbf5c19deba00878
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
-%global commit1 feacefe1957dbb2f8bbe874ac9b01d6cd7d29108
+%global commit1 0c99dfff2a824c6f7210ff700c56b2c3d51e64cd
 %global shortcommit1 %(c=%{commit1}; echo ${c:0:7})
 
 %global fontname google-noto-emoji
 
 
-Name:           google-noto-emoji-fonts
-Version:        20170827
+Name:           %{fontname}-fonts
+Version:        20170928
 Release:        1%{?dist}
-Summary:        Google Noto Emoji Fonts
+Summary:        Google “Noto Emoji” Black-and-White emoji font
 
 # In noto-emoji-fonts source
 ## noto-emoji code is in ASL 2.0 license
@@ -24,7 +24,8 @@ License:        OFL and ASL 2.0
 URL:            https://github.com/googlei18n/noto-emoji
 Source0:        https://github.com/googlei18n/noto-emoji/archive/%{commit0}.tar.gz#/noto-emoji-%{shortcommit0}.tar.gz
 Source1:        https://github.com/googlei18n/nototools/archive/%{commit1}.tar.gz#/nototools-%{shortcommit1}.tar.gz
-Source2:        google-noto-emoji.metainfo.xml
+Source2:        %{fontname}.metainfo.xml
+Source3:        %{fontname}-color.metainfo.xml
 
 Patch0:         noto-emoji-use-system-pngquant.patch
 
@@ -44,8 +45,16 @@ Obsoletes:      google-noto-color-emoji-fonts < 20150617
 Provides:       google-noto-color-emoji-fonts = 20150617
 
 %description
-Color and Black-and-White Noto emoji fonts, and tools for working with them.
+This package provides the Google “Noto Emoji” Black-and-White emoji font.
 
+%package -n     %{fontname}-color-fonts
+Summary:        Google “Noto Color Emoji” colored emoji font
+Requires:       fontpackages-filesystem
+Obsoletes:      google-noto-color-emoji-fonts < 20150617
+Provides:       google-noto-color-emoji-fonts = 20150617
+
+%description -n %{fontname}-color-fonts
+This package provides the Google “Noto Color Emoji” colored emoji font.
 
 %prep
 %autosetup -n noto-emoji-%{commit0}
@@ -72,15 +81,24 @@ install -m 0644 -p fonts/*.ttf %{buildroot}%{_fontdir}
 
 mkdir -p %{buildroot}%{_datadir}/appdata
 install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
+install -m 0644 -p %{SOURCE3} %{buildroot}%{_datadir}/appdata
 
-
-%_font_pkg *.ttf
+%_font_pkg NotoEmoji-Regular.ttf
 %license LICENSE
 %doc AUTHORS CONTRIBUTING.md CONTRIBUTORS README.md
 %{_datadir}/appdata/google-noto-emoji.metainfo.xml
 
+%_font_pkg -n color NotoColorEmoji.ttf
+%license LICENSE
+%doc AUTHORS CONTRIBUTING.md CONTRIBUTORS README.md
+%{_datadir}/appdata/google-noto-emoji-color.metainfo.xml
+
 
 %changelog
+* Thu Sep 28 2017 Mike FABIAN <mfabian@redhat.com> - 20170828-1
+- Update to upstream snapshot tarball
+- split black-and-white and color fonts into different sub-packages.
+
 * Mon Aug 28 2017 Mike FABIAN <mfabian@redhat.com> - 20170827-1
 - Update to upstream snapshot tarball
 - Update color emoji font to version 2.001, new design.
