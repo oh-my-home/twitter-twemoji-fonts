@@ -9,7 +9,7 @@
 
 Name:           %{fontname}-fonts
 Version:        20170928
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Google “Noto Emoji” Black-and-White emoji font
 
 # In noto-emoji-fonts source
@@ -36,7 +36,7 @@ BuildRequires:  python-devel
 BuildRequires:  fontpackages-devel
 BuildRequires:  ImageMagick
 BuildRequires:  pngquant
-BuildRequires:  optipng
+BuildRequires:  zopfli
 BuildRequires:  cairo-devel
 
 Requires:       fontpackages-filesystem
@@ -95,6 +95,9 @@ install -m 0644 -p %{SOURCE3} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Tue Nov  7 2017 Peter Oliver <rpm@mavit.org.uk> - 20170928-2
+- Prefer zopflipng to optipng, since it should yield smaller files.
+
 * Thu Sep 28 2017 Mike FABIAN <mfabian@redhat.com> - 20170828-1
 - Update to upstream snapshot tarball
 - split black-and-white and color fonts into different sub-packages.
