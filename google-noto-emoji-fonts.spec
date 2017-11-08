@@ -76,8 +76,12 @@ make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 install -m 0755 -d %{buildroot}%{_fontdir}
-install -m 0644 -p *Emoji.ttf %{buildroot}%{_fontdir}
-install -m 0644 -p fonts/*.ttf %{buildroot}%{_fontdir}
+
+# Built by us from the supplied pngs:
+install -m 0644 -p NotoColorEmoji.ttf %{buildroot}%{_fontdir}
+
+# Pre-built, and included with the source:
+install -m 0644 -p fonts/NotoEmoji-Regular.ttf %{buildroot}%{_fontdir}
 
 mkdir -p %{buildroot}%{_datadir}/appdata
 install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
@@ -95,8 +99,9 @@ install -m 0644 -p %{SOURCE3} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
-* Tue Nov  7 2017 Peter Oliver <rpm@mavit.org.uk> - 20170928-2
+* Wed Nov  8 2017 Peter Oliver <rpm@mavit.org.uk> - 20170928-2
 - Prefer zopflipng to optipng, since it should yield smaller files.
+- Use the font we built, rather than the one included with the source.
 
 * Thu Sep 28 2017 Mike FABIAN <mfabian@redhat.com> - 20170828-1
 - Update to upstream snapshot tarball
