@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="font">
+  <id>io.github.emojitwo</id>
+  <metadata_license>CC-BY-SA-3.0</metadata_license>
+  <project_license>OFL-1.1 and Apache-2.0 and CC-BY-4.0 and MIT</project_license>
+  <name>Emoji Two</name>
+  <summary>Color emoji font with a flat style</summary>
+  <description>
+    <p>
+      Maintained fork of the last fully free version of Ranks.com’s Emoji One font.
+    </p>
+  </description>
+
+  <url type="homepage">https://emojitwo.github.io/</url>
+  <url type="bugtracker">https://github.com/EmojiTwo/emojitwo/issues</url>
+
+  <provides>
+    <font>Emoji Two</font>
+  </provides>
+</component>
