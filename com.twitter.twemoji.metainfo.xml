@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="font">
+  <id>com.twitter.twemoji</id>
+  <metadata_license>CC-BY-SA-3.0</metadata_license>
+  <project_license>OFL-1.1 and Apache-2.0 and CC-BY-4.0 and MIT</project_license>
+  <name>Twemoji</name>
+  <summary>Twitter Emoji for everyone</summary>
+  <description>
+    <p>
+      A color emoji font with a flat visual style, designed and used by
+      Twitter.
+    </p>
+  </description>
+
+  <url type="homepage">https://twitter.github.io/twemoji/</url>
+  <url type="bugtracker">https://github.com/twitter/twemoji/issues</url>
+
+  <!-- <screenshots> -->
+  <!--   <screenshot type="default"> -->
+  <!--     <image width="FIXME" height="FIXME"> -->
+  <!--       FIXME -->
+  <!--     </image> -->
+  <!--   </screenshot> -->
+  <!-- </screenshots> -->
+
+  <provides>
+    <font>Twemoji</font>
+  </provides>
+</component>
