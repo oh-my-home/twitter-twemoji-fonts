@@ -14,6 +14,14 @@
   <url type="homepage">https://emojitwo.github.io/</url>
   <url type="bugtracker">https://github.com/EmojiTwo/emojitwo/issues</url>
 
+  <screenshots>
+    <screenshot type="default">
+      <image width="1210" height="681">
+        https://pagure.io/emojitwo-fonts/raw/master/f/emojitwo.gnome-characters.png
+      </image>
+    </screenshot>
+  </screenshots>
+
   <provides>
     <font>Emoji Two</font>
   </provides>

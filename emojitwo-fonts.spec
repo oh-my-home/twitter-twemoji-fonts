@@ -12,7 +12,7 @@
 
 Name:           %{fontname}-fonts
 Version:        20171019git%{shortcommit4}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Color emoji font with a flat style
 
 # In noto-emoji-fonts source
@@ -94,5 +94,8 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
-* Thu Nov  9 2017 Peter Oliver <rpm@mavit.org.uk> - 20171019git0c16521-2
+* Thu Nov 16 2017 Peter Oliver <rpm@mavit.org.uk> - 20171019git0c16521-2
+- Add a screenshot to the AppData.
+
+* Thu Nov  9 2017 Peter Oliver <rpm@mavit.org.uk> - 20171019git0c16521-1
 - Initial version, based on google-noto-emoji-fonts package.
