@@ -11,7 +11,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        2.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -77,7 +77,7 @@ export PATH=$PATH:"$PWD/nototools"
 export PYTHONPATH=$PWD
 popd
 
-make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/2/72x72 FLAGS=
+make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/2/72x72 FLAGS= IMOPS=" -size 76x72 canvas:none -compose copy -gravity center"
 
 
 %install
@@ -97,5 +97,8 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Thu Nov 16 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-2
+- Use correct image size.
+
 * Thu Nov 16 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-1
 - Initial version, based on emojitwo-fonts package.
