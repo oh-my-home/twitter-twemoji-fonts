@@ -15,13 +15,13 @@
   <url type="homepage">https://twitter.github.io/twemoji/</url>
   <url type="bugtracker">https://github.com/twitter/twemoji/issues</url>
 
-  <!-- <screenshots> -->
-  <!--   <screenshot type="default"> -->
-  <!--     <image width="FIXME" height="FIXME"> -->
-  <!--       FIXME -->
-  <!--     </image> -->
-  <!--   </screenshot> -->
-  <!-- </screenshots> -->
+  <screenshots>
+    <screenshot type="default">
+      <image width="1100" height="618">
+        https://pagure.io/twitter-twemoji-fonts/raw/master/f/twitter-twemoji.gnome-characters.png
+      </image>
+    </screenshot>
+  </screenshots>
 
   <provides>
     <font>Twemoji</font>

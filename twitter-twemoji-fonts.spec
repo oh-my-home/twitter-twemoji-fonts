@@ -99,6 +99,7 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 %changelog
 * Thu Nov 16 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-2
 - Use correct image size.
+- Add screenshot to AppData.
 
 * Thu Nov 16 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-1
 - Initial version, based on emojitwo-fonts package.
