@@ -11,7 +11,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        2.3.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -97,6 +97,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Tue Nov 21 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-3
+- Specify that this is an emoji font in the appstream metadata.
+
 * Thu Nov 16 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-2
 - Use correct image size.
 - Add screenshot to AppData.

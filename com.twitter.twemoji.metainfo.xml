@@ -26,4 +26,7 @@
   <provides>
     <font>Twemoji</font>
   </provides>
+  <languages>
+    <lang>und-zsye</lang>
+  </languages>
 </component>
