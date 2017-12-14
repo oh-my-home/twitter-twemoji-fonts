@@ -11,7 +11,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        2.3.1
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -69,8 +69,8 @@ popd
 
 
 %build
-# Work around UTF-8
-export LANG=zh_CN.UTF-8
+# Prevent python 2 crash in Koji when outputting Unicode characters:
+export LANG=C.UTF-8
 
 pushd nototools-%{commit1}
 export PATH=$PATH:"$PWD/nototools"
@@ -97,6 +97,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Thu Dec 14 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-5
+- Use C.UTF-8 locale.
+
 * Thu Dec  7 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-4
 - Update noto-emoji.
 - Pass body dimensions directly, as allowed by latest noto-emoji Makefile.
