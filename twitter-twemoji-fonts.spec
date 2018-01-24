@@ -7,8 +7,8 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        2.3.1
-Release:        6%{?dist}
+Version:        2.4.0
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -83,6 +83,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Wed Jan 24 2018 Peter Oliver <rpm@mavit.org.uk> - 2.4.0-1
+- Update to version 2.4.0.
+
 * Tue Dec 19 2017 Peter Oliver <rpm@mavit.org.uk> - 2.3.1-6
 - Unbundle nototools.  Depends on #1527289.
 
