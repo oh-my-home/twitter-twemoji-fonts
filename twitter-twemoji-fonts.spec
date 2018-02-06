@@ -34,7 +34,7 @@ BuildRequires:  fontpackages-devel
 BuildRequires:  fonttools
 BuildRequires:  nototools
 BuildRequires:  pngquant
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python2dist(fonttools)
 BuildRequires:  zopfli
 
