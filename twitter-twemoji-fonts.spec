@@ -85,7 +85,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{fontnam
 %license %{fontname}-%{version}/LICENSE-GRAPHICS
 %doc %{fontname}-%{version}/CONTRIBUTING.md
 %doc %{fontname}-%{version}/README.md
-%{_datadir}/appdata/com.%{vendor}.%{fontname}.metainfo.xml
+%{_datadir}/metainfo/com.%{vendor}.%{fontname}.metainfo.xml
 
 
 %changelog
