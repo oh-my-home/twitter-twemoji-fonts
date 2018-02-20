@@ -76,7 +76,7 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/metainfo
 
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{fontname}.metainfo.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{vendor}.%{fontname}.metainfo.xml
 
 
 %_font_pkg %{Fontname}.ttf
