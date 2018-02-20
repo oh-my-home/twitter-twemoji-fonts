@@ -8,7 +8,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        2.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -29,6 +29,7 @@ Patch0:         noto-emoji-use-system-pngquant.patch
 
 BuildArch:      noarch
 BuildRequires:  ImageMagick
+BuildRequires:  libappstream-glib
 BuildRequires:  cairo-devel
 BuildRequires:  fontpackages-devel
 BuildRequires:  fonttools
@@ -70,8 +71,13 @@ make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR
 install -m 0755 -d %{buildroot}%{_fontdir}
 install -m 0644 -p %{Fontname}.ttf %{buildroot}%{_fontdir}
 
-mkdir -p %{buildroot}%{_datadir}/appdata
-install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
+mkdir -p %{buildroot}%{_datadir}/metainfo
+install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/metainfo
+
+
+%check
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/%{fontname}.metainfo.xml
+
 
 %_font_pkg %{Fontname}.ttf
 %license LICENSE-BUILD
@@ -83,6 +89,9 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/appdata
 
 
 %changelog
+* Tue Feb 20 2018 Peter Oliver <rpm@mavit.org.uk> - 2.4.0-2
+- Validate metainfo.
+
 * Wed Jan 24 2018 Peter Oliver <rpm@mavit.org.uk> - 2.4.0-1
 - Update to version 2.4.0.
 
