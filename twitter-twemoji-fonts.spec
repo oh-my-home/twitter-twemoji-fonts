@@ -29,10 +29,10 @@ Patch0:         noto-emoji-use-system-pngquant.patch
 
 BuildArch:      noarch
 BuildRequires:  ImageMagick
-BuildRequires:  libappstream-glib
 BuildRequires:  cairo-devel
 BuildRequires:  fontpackages-devel
 BuildRequires:  fonttools
+BuildRequires:  libappstream-glib
 BuildRequires:  nototools
 BuildRequires:  pngquant
 BuildRequires:  python2-devel
