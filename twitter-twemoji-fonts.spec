@@ -7,8 +7,8 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        2.4.0
-Release:        2%{?dist}
+Version:        2.6.0
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -89,6 +89,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Tue Apr 17 2018 Peter Oliver <rpm@mavit.org.uk> - 2.6.0-1
+- Update to version 2.6.0.
+
 * Tue Feb 20 2018 Peter Oliver <rpm@mavit.org.uk> - 2.4.0-2
 - Validate metainfo.
 
