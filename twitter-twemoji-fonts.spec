@@ -1,4 +1,4 @@
-%global commit0 411334c8e630acf858569602cbf5c19deba00878
+%global commit0 352632eb1935fd2b732f6f3ca0a24e9754c3eccf
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 %global vendor twitter
@@ -7,7 +7,7 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        2.6.0
+Version:        2.7.0
 Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
@@ -26,6 +26,7 @@ Source2:        com.%{vendor}.%{fontname}.metainfo.xml
 Source4:        https://github.com/%{vendor}/%{fontname}/archive/v%{version}.tar.gz#/%{fontname}-%{version}.tar.gz
 
 Patch0:         noto-emoji-use-system-pngquant.patch
+Patch1:         noto-emoji-build-all-flags.patch
 
 BuildArch:      noarch
 BuildRequires:  ImageMagick
@@ -89,6 +90,11 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Fri May 18 2018 Peter Oliver <rpm@mavit.org.uk> - 2.7.0-1
+- Update to version 2.7.0.
+- Update to 2018-05-03 noto-emoji snapshot.
+- Build all flags.
+
 * Tue Apr 17 2018 Peter Oliver <rpm@mavit.org.uk> - 2.6.0-1
 - Update to version 2.6.0.
 
