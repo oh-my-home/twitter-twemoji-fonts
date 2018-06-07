@@ -7,7 +7,7 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        2.7.0
+Version:        11.0.0
 Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Thu Jun  7 2018 Peter Oliver <rpm@mavit.org.uk> - 11.0.0-1
+- Update to Twemoji 11.0.0, covering Unicode 11.0.0.
+
 * Fri May 18 2018 Peter Oliver <rpm@mavit.org.uk> - 2.7.0-1
 - Update to version 2.7.0.
 - Update to 2018-05-03 noto-emoji snapshot.
