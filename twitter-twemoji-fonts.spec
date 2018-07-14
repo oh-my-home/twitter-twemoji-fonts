@@ -8,7 +8,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        11.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 11.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Thu Jun  7 2018 Peter Oliver <rpm@mavit.org.uk> - 11.0.0-1
 - Update to Twemoji 11.0.0, covering Unicode 11.0.0.
 
