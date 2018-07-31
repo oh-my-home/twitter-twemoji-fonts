@@ -8,7 +8,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        11.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -29,6 +29,7 @@ Patch0:         noto-emoji-use-system-pngquant.patch
 Patch1:         noto-emoji-build-all-flags.patch
 
 BuildArch:      noarch
+BuildRequires:  /usr/bin/python
 BuildRequires:  ImageMagick
 BuildRequires:  cairo-devel
 BuildRequires:  fontpackages-devel
@@ -90,6 +91,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Tue Jul 31 2018 Peter Oliver <rpm@mavit.org.uk> - 11.0.0-3
+- /usr/bin/python still required by noto-emoji
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 11.0.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
