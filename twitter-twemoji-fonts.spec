@@ -7,8 +7,8 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        11.0.0
-Release:        3%{?dist}
+Version:        11.0.1
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -20,7 +20,7 @@ Summary:        Twitter Emoji for everyone
 ## Artwork is Creative Commons Attribution 4.0 International
 ## Non-artwork is MIT
 License:        OFL and ASL 2.0 and CC-BY and MIT
-URL:            https://twitter.github.io/twemoji
+URL:            https://twemoji.twitter.com/
 Source0:        https://github.com/googlei18n/noto-emoji/archive/%{commit0}.tar.gz#/noto-emoji-%{shortcommit0}.tar.gz
 Source2:        com.%{vendor}.%{fontname}.metainfo.xml
 Source4:        https://github.com/%{vendor}/%{fontname}/archive/v%{version}.tar.gz#/%{fontname}-%{version}.tar.gz
@@ -91,6 +91,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Sat Aug  4 2018 Peter Oliver <rpm@mavit.org.uk> - 11.0.1-1
+- Update to version 11.0.1.
+- Update URL.
+
 * Tue Jul 31 2018 Peter Oliver <rpm@mavit.org.uk> - 11.0.0-3
 - /usr/bin/python still required by noto-emoji
 
