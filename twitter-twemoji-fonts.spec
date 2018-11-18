@@ -1,4 +1,4 @@
-%global commit0 352632eb1935fd2b732f6f3ca0a24e9754c3eccf
+%global commit0 3ffd20ec7504657aa17c84f9aa475ad09b20c362
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 %global vendor twitter
@@ -7,7 +7,7 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        11.1.0
+Version:        11.2.0
 Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
@@ -91,6 +91,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Sun Nov 18 2018 Peter Oliver <rpm@mavit.org.uk> - 11.2.0-1
+- Update to version 11.2.0.
+- Update to 2018-08-10 noto-emoji snapshot.
+
 * Sat Aug 11 2018 Peter Oliver <rpm@mavit.org.uk> - 11.1.0-1
 - Update to version 11.1.0.
 
