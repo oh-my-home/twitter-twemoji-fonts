@@ -7,8 +7,8 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        11.2.0
-Release:        2%{?dist}
+Version:        11.3.0
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -91,6 +91,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Wed Feb  6 2019 Peter Oliver <rpm@mavit.org.uk> - 11.3.0-1
+- Update to version 11.3.0.
+
 * Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 11.2.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
