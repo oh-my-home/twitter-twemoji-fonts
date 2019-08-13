@@ -1,20 +1,16 @@
-diff -ru noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5.orig/Makefile noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5/Makefile
---- noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5.orig/Makefile	2018-03-07 09:22:49.670696985 +0100
-+++ noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5/Makefile	2018-03-07 09:23:06.824506178 +0100
-@@ -15,10 +15,9 @@
+diff -ru noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf.orig/Makefile noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf/Makefile
+--- noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf.orig/Makefile	2019-07-08 18:40:44.000000000 +0200
++++ noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf/Makefile	2019-07-09 10:07:13.028622382 +0200
+@@ -15,7 +15,7 @@
  EMOJI = NotoColorEmoji
  font: $(EMOJI).ttf
  
 -CFLAGS = -std=c99 -Wall -Wextra `pkg-config --cflags --libs cairo`
 +CFLAGS = $(OPT_CFLAGS) `pkg-config --cflags --libs cairo`
  LDFLAGS = -lm `pkg-config --libs cairo`
--PNGQUANTDIR := third_party/pngquant
--PNGQUANT := $(PNGQUANTDIR)/pngquant
-+PNGQUANT = pngquant
- PNGQUANTFLAGS = --speed 1 --skip-if-larger --quality 85-95 --force
- BODY_DIMENSIONS = 136x128
- IMOPS := -size $(BODY_DIMENSIONS) canvas:none -compose copy -gravity center
-@@ -97,6 +96,12 @@
+ 
+ PNGQUANT = pngquant
+@@ -101,6 +101,12 @@
  ALL_COMPRESSED_FILES = $(addprefix $(COMPRESSED_DIR)/, $(ALL_NAMES))
  
  # tool checks
@@ -27,7 +23,7 @@ diff -ru noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5.orig/Makefile noto-
  ifeq (,$(shell which $(ZOPFLIPNG)))
    ifeq (,$(wildcard $(ZOPFLIPNG)))
      MISSING_ZOPFLI = fail
-@@ -126,6 +131,11 @@
+@@ -130,6 +136,11 @@
  
  compressed: $(ALL_COMPRESSED_FILES)
  
@@ -39,21 +35,19 @@ diff -ru noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5.orig/Makefile noto-
  check_compress_tool:
  ifdef MISSING_ZOPFLI
    ifdef MISSING_OPTIPNG
-@@ -146,8 +156,7 @@
- $(EMOJI_DIR) $(FLAGS_DIR) $(RESIZED_FLAGS_DIR) $(RENAMED_FLAGS_DIR) $(QUANTIZED_DIR) $(COMPRESSED_DIR):
+@@ -151,6 +162,8 @@
  	mkdir -p "$@"
  
--$(PNGQUANT):
--	$(MAKE) -C $(PNGQUANTDIR)
-+$(PNGQUANT): check_quantization_tool
  
++$(PNGQUANT): check_quantization_tool
++
  waveflag: waveflag.c
  	$(CC) $< -o $@ $(CFLAGS) $(LDFLAGS)
-@@ -227,5 +236,5 @@
+ 
+@@ -229,5 +242,5 @@
  .SECONDARY: $(EMOJI_FILES) $(FLAG_FILES) $(RESIZED_FLAG_FILES) $(RENAMED_FLAG_FILES) \
    $(ALL_QUANTIZED_FILES) $(ALL_COMPRESSED_FILES)
  
 -.PHONY:	clean flags emoji renamed_flags quantized compressed check_compress_tool
 +.PHONY:	clean flags emoji renamed_flags quantized compressed check_compress_tool check_quantization_tool
  
-noto-emoji-153e1d4c026c124fbac6ee93e559b5df375f24f5/ のみに存在: Makefile.orig

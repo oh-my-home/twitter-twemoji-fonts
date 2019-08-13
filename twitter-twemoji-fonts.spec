@@ -1,4 +1,4 @@
-%global commit0 3ffd20ec7504657aa17c84f9aa475ad09b20c362
+%global commit0 f09acc559b08e5f00c297c986d0e6112ebc88dbf
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 %global vendor twitter
@@ -8,7 +8,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        11.3.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -27,18 +27,20 @@ Source4:        https://github.com/%{vendor}/%{fontname}/archive/v%{version}.tar
 
 Patch0:         noto-emoji-use-system-pngquant.patch
 Patch1:         noto-emoji-build-all-flags.patch
+Patch2:         noto-emoji-use-gm.patch
+Patch3:         noto-emoji-python3.patch
+Patch4:         noto-emoji-port-to-python3.patch
 
 BuildArch:      noarch
-BuildRequires:  /usr/bin/python
-BuildRequires:  ImageMagick
+BuildRequires:  GraphicsMagick
 BuildRequires:  cairo-devel
 BuildRequires:  fontpackages-devel
 BuildRequires:  fonttools
 BuildRequires:  libappstream-glib
 BuildRequires:  nototools
 BuildRequires:  pngquant
-BuildRequires:  python2-devel
-BuildRequires:  python2dist(fonttools)
+BuildRequires:  python3-devel
+BuildRequires:  python3dist(fonttools)
 BuildRequires:  zopfli
 
 Requires:       fontpackages-filesystem
@@ -49,7 +51,7 @@ A color emoji font with a flat visual style, designed and used by Twitter.
 
 
 %prep
-%autosetup -n noto-emoji-%{commit0}
+%autosetup -p1 -n noto-emoji-%{commit0}
 rm -rf third_party/pngquant
 mv LICENSE LICENSE-BUILD
 
@@ -63,9 +65,6 @@ popd
 
 
 %build
-# Prevent python 2 crash in Koji when outputting Unicode characters:
-export LANG=C.UTF-8
-
 make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/2/72x72 FLAGS= BODY_DIMENSIONS=76x72
 
 
@@ -91,6 +90,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Tue Aug 13 2019 Peter Oliver <rpm@mavit.org.uk> - 11.3.0-3
+- Build against Python 3.
+- Sync build from google-noto-emoji-fonts-20190709-2.
+
 * Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 11.3.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
