@@ -7,8 +7,8 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        11.3.0
-Release:        3%{?dist}
+Version:        12.1.2
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -57,7 +57,7 @@ mv LICENSE LICENSE-BUILD
 
 tar -xf %{SOURCE4}
 sed 's/Noto Color Emoji/Twemoji/; s/NotoColorEmoji/Twemoji/; s/Copyright .* Google Inc\./Twitter, Inc and other contributors./; s/ Version .*/ %{version}/; s/.*is a trademark.*//; s/Google, Inc\./Twitter, Inc and other contributors/; s,http://www.google.com/get/noto/,https://github.com/twitter/twemoji/,; s/.*is licensed under.*/      Creative Commons Attribution 4.0 International/; s,http://scripts.sil.org/OFL,http://creativecommons.org/licenses/by/4.0/,' NotoColorEmoji.tmpl.ttx.tmpl > Twemoji.tmpl.ttx.tmpl
-pushd %{fontname}-%{version}/2/72x72/
+pushd %{fontname}-%{version}/assets/72x72/
 for png in *.png; do
     mv $png emoji_u${png//-/_}
 done
@@ -65,7 +65,7 @@ popd
 
 
 %build
-make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/2/72x72 FLAGS= BODY_DIMENSIONS=76x72
+make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/assets/72x72 FLAGS= BODY_DIMENSIONS=76x72
 
 
 %install
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Wed Aug 14 2019 Peter Oliver <rpm@mavit.org.uk> - 12.1.2-1
+- Update to version 12.1.2.
+
 * Tue Aug 13 2019 Peter Oliver <rpm@mavit.org.uk> - 11.3.0-3
 - Build against Python 3.
 - Sync build from google-noto-emoji-fonts-20190709-2.
