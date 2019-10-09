@@ -8,7 +8,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        12.1.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Wed Oct  9 2019 Peter Oliver <rpm@mavit.org.uk> - 12.1.3-2
+- Fix emojis appearing too small.
+
 * Sat Sep 21 2019 Peter Oliver <rpm@mavit.org.uk> - 12.1.3-1
 - Update to version 12.1.3
 
