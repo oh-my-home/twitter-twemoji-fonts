@@ -7,7 +7,7 @@
 
 
 Name:           %{vendor}-%{fontname}-fonts
-Version:        12.1.4
+Version:        12.1.5
 Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
@@ -90,6 +90,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Wed Jan 29 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.5-1
+- Update to version 12.1.5.
+
 * Fri Nov 15 2019 Peter Oliver <rpm@mavit.org.uk> - 12.1.4-1
 - Update to 12.1.4.
 
