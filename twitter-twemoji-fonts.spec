@@ -1,4 +1,4 @@
-%global commit0 f09acc559b08e5f00c297c986d0e6112ebc88dbf
+%global commit0 018aa149d622a4fea11f01c61a7207079da301bc
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 %global vendor twitter
@@ -8,7 +8,7 @@
 
 Name:           %{vendor}-%{fontname}-fonts
 Version:        12.1.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -28,8 +28,6 @@ Source4:        https://github.com/%{vendor}/%{fontname}/archive/v%{version}.tar
 Patch0:         noto-emoji-use-system-pngquant.patch
 Patch1:         noto-emoji-build-all-flags.patch
 Patch2:         noto-emoji-use-gm.patch
-Patch3:         noto-emoji-python3.patch
-Patch4:         noto-emoji-port-to-python3.patch
 
 BuildArch:      noarch
 BuildRequires:  GraphicsMagick
@@ -90,6 +88,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 
 
 %changelog
+* Thu Jan 30 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.5-2
+- Build with noto-emoji 018aa14, dropping patches for Python 3.
+
 * Wed Jan 29 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.5-1
 - Update to version 12.1.5.
 

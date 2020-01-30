@@ -1,8 +1,7 @@
-diff -ru noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf.orig/Makefile noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf/Makefile
---- noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf.orig/Makefile	2019-07-09 10:15:51.036088559 +0200
-+++ noto-emoji-f09acc559b08e5f00c297c986d0e6112ebc88dbf/Makefile	2019-07-09 10:14:17.684085829 +0200
+--- noto-emoji-018aa149d622a4fea11f01c61a7207079da301bc.orig/Makefile
++++ noto-emoji-018aa149d622a4fea11f01c61a7207079da301bc/Makefile
 @@ -21,7 +21,7 @@
- PNGQUANT = pngquant
+ PYTHON = python3
  PNGQUANTFLAGS = --speed 1 --skip-if-larger --quality 85-95 --force
  BODY_DIMENSIONS = 136x128
 -IMOPS := -size $(BODY_DIMENSIONS) canvas:none -compose copy -gravity center
