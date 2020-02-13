@@ -1,14 +1,14 @@
 %global commit0 018aa149d622a4fea11f01c61a7207079da301bc
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
-%global vendor twitter
+%global foundry twitter
 %global fontname twemoji
 %global Fontname Twemoji
 
 
-Name:           %{vendor}-%{fontname}-fonts
+Name:           %{foundry}-%{fontname}-fonts
 Version:        12.1.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -22,8 +22,8 @@ Summary:        Twitter Emoji for everyone
 License:        OFL and ASL 2.0 and CC-BY and MIT
 URL:            https://twemoji.twitter.com/
 Source0:        https://github.com/googlei18n/noto-emoji/archive/%{commit0}.tar.gz#/noto-emoji-%{shortcommit0}.tar.gz
-Source2:        com.%{vendor}.%{fontname}.metainfo.xml
-Source4:        https://github.com/%{vendor}/%{fontname}/archive/v%{version}.tar.gz#/%{fontname}-%{version}.tar.gz
+Source2:        com.%{foundry}.%{fontname}.metainfo.xml
+Source4:        https://github.com/%{foundry}/%{fontname}/archive/v%{version}.tar.gz#/%{fontname}-%{version}.tar.gz
 
 Patch0:         noto-emoji-use-system-pngquant.patch
 Patch1:         noto-emoji-build-all-flags.patch
@@ -75,7 +75,7 @@ install -m 0644 -p %{SOURCE2} %{buildroot}%{_datadir}/metainfo
 
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{vendor}.%{fontname}.metainfo.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{foundry}.%{fontname}.metainfo.xml
 
 
 %_font_pkg %{Fontname}.ttf
@@ -84,10 +84,13 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{ven
 %license %{fontname}-%{version}/LICENSE-GRAPHICS
 %doc %{fontname}-%{version}/CONTRIBUTING.md
 %doc %{fontname}-%{version}/README.md
-%{_datadir}/metainfo/com.%{vendor}.%{fontname}.metainfo.xml
+%{_datadir}/metainfo/com.%{foundry}.%{fontname}.metainfo.xml
 
 
 %changelog
+* Thu Feb 13 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.5-4
+- Variable vendor is reserved.
+
 * Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 12.1.5-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
