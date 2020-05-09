@@ -1,4 +1,4 @@
-%global commit0 018aa149d622a4fea11f01c61a7207079da301bc
+%global commit0 ac1703e9d7feebbf5443a986e08332b1e1c5afcf
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 %global foundry twitter
@@ -7,7 +7,7 @@
 
 
 Name:           %{foundry}-%{fontname}-fonts
-Version:        12.1.6
+Version:        13.0.0
 Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
@@ -88,6 +88,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{fou
 
 
 %changelog
+* Sat May  9 2020 Peter Oliver <rpm@mavit.org.uk> - 13.0.0-1
+- Update to version 13.0.0.
+- Build with noto-emoji ac1703e.
+
 * Sat May  9 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.6-1
 - Update to version 12.1.6.
 
