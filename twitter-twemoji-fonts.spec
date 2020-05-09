@@ -7,8 +7,8 @@
 
 
 Name:           %{foundry}-%{fontname}-fonts
-Version:        12.1.5
-Release:        4%{?dist}
+Version:        12.1.6
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -88,6 +88,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{fou
 
 
 %changelog
+* Sat May  9 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.6-1
+- Update to version 12.1.6.
+
 * Thu Feb 13 2020 Peter Oliver <rpm@mavit.org.uk> - 12.1.5-4
 - Variable vendor is reserved.
 
