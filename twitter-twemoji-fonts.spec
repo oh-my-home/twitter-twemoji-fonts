@@ -7,7 +7,7 @@
 
 
 Name:           %{foundry}-%{fontname}-fonts
-Version:        13.0.0
+Version:        13.0.1
 Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
@@ -88,6 +88,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{fou
 
 
 %changelog
+* Fri Jul 17 2020 Peter Oliver <rpm@mavit.org.uk> - 13.0.1-1
+- Update to version 13.0.1.
+
 * Sat May  9 2020 Peter Oliver <rpm@mavit.org.uk> - 13.0.0-1
 - Update to version 13.0.0.
 - Build with noto-emoji ac1703e.
