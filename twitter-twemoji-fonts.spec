@@ -30,6 +30,7 @@ Patch1:         noto-emoji-build-all-flags.patch
 Patch2:         noto-emoji-use-gm.patch
 
 BuildArch:      noarch
+BuildRequires: make
 BuildRequires:  GraphicsMagick
 BuildRequires:  cairo-devel
 BuildRequires:  fontpackages-devel
