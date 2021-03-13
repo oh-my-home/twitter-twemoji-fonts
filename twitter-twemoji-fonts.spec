@@ -7,8 +7,8 @@
 
 
 Name:           %{foundry}-%{fontname}-fonts
-Version:        13.0.1
-Release:        3%{?dist}
+Version:        13.0.2
+Release:        1%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -89,6 +89,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{fou
 
 
 %changelog
+* Sat Mar 13 2021 Fedora Release Monitoring <release-monitoring@fedoraproject.org> - 13.0.2-1
+- Update to 13.0.2 (#1938403)
+
 * Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 13.0.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
