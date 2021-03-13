@@ -1,4 +1,4 @@
-%global commit0 ac1703e9d7feebbf5443a986e08332b1e1c5afcf
+%global commit0 aac7ccaa4d1dea4543453b96f7d6fc47066a57ff
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 
 %global foundry twitter
@@ -8,7 +8,7 @@
 
 Name:           %{foundry}-%{fontname}-fonts
 Version:        13.0.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Twitter Emoji for everyone
 
 # In noto-emoji-fonts source
@@ -89,6 +89,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/com.%{fou
 
 
 %changelog
+* Sat Mar 13 2021 Peter Oliver <rpm@mavit.org.uk> - 13.0.2-2
+- Build with noto-emoji aac7cca.
+
 * Sat Mar 13 2021 Fedora Release Monitoring <release-monitoring@fedoraproject.org> - 13.0.2-1
 - Update to 13.0.2 (#1938403)
 
