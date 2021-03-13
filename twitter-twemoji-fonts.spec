@@ -28,7 +28,6 @@ Source4:        https://github.com/%{foundry}/%{fontname}/archive/v%{version}.ta
 Patch0:         noto-emoji-use-system-pngquant.patch
 Patch1:         noto-emoji-build-all-flags.patch
 Patch2:         noto-emoji-use-gm.patch
-Patch3:         noto-emoji-check-sequence.patch
 
 BuildArch:      noarch
 BuildRequires: make
@@ -65,7 +64,7 @@ popd
 
 
 %build
-make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" BYPASS_SEQUENCE_CHECK=True EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/assets/72x72 FLAGS= BODY_DIMENSIONS=76x72
+make %{?_smp_mflags} OPT_CFLAGS="$RPM_OPT_FLAGS" EMOJI=%{Fontname} EMOJI_SRC_DIR=%{fontname}-%{version}/assets/72x72 FLAGS= BODY_DIMENSIONS=76x72
 
 
 %install
